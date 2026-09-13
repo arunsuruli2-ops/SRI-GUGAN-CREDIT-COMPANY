@@ -1,9 +1,9 @@
-name: Android CI
+name: Build Android APK
 
 on:
+  workflow_dispatch:
   push:
     branches: ["main"]
-  workflow_dispatch:
 
 jobs:
   build:
@@ -16,14 +16,20 @@ jobs:
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
+          distribution: temurin
           java-version: "17"
-          distribution: "temurin"
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.11.1"
 
       - name: Build APK
+        working-directory: SRI-GUGAN-CREDIT-COMPANY
         run: gradle assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: Sri-Gugan-Credit-APK
-          path: app/build/outputs/apk/debug/*.apk
+          name: sri-gugan-credit-debug-apk
+          path: SRI-GUGAN-CREDIT-COMPANY/app/build/outputs/apk/debug/app-debug.apk
