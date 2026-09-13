@@ -1,12 +1,7 @@
 # SRI GUGAN CREDIT COMPANY
 
-Android starter project for Gugan Credit & Company.
+Android starter app for two-wheeler finance and refinance.
 
-Features included in the starter UI:
-- Customer Registration
-- Two-Wheeler Loan Application
-- Refinance Application
-- EMI Calculator
-- Loan / EMI Status
+This project is structured as a Gradle Android project at the repository root. GitHub Actions installs Gradle 8.11.1 and builds the debug APK automatically.
 
-GitHub Actions is configured to build a debug APK automatically.
+APK artifact: `app-debug`
